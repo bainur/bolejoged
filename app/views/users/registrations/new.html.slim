@@ -1,0 +1,27 @@
+.row
+  .columns
+    h2 = title("Sign up")
+
+.row
+  .medium-5.columns
+    = simple_form_for resource,
+        as: resource_name,
+        url: registration_path(resource_name) do |f|
+      .form-inputs
+        = f.input :full_name, required: true, autofocus: true
+        = f.input :email, required: true
+        = f.fields_for :user_information do |ui|
+          = ui.label "Tanggal lahir"
+          = ui.text_field :dob
+          = ui.label "Alamat"
+          = ui.text_field :address
+          = ui.label "No Telephone"
+          = ui.text_field :phone_number, required: true
+        = f.input :password, required: true
+        = f.input :password_confirmation, required: true
+
+      .form-actions
+        = f.button :submit, "Sign up"
+
+  .medium-5.medium-offset-1.columns.end
+    = render "users/shared/links"
