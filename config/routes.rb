@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :users
+    resources :sport_categories
   end
   root to: "pages#home"
 end
