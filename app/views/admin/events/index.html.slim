@@ -1,0 +1,34 @@
+h1 Listing admin_events
+
+table
+  thead
+    tr
+      th Sport category
+      th Name
+      th Start date
+      th End date
+      th Status
+      th Lat
+      th Lang
+      th Price
+      th
+      th
+      th
+
+  tbody
+    - @events.each do |admin_event|
+      tr
+        td = admin_event.sport_category_id
+        td = admin_event.name
+        td = admin_event.start_date
+        td = admin_event.end_date
+        td = admin_event.status
+        td = admin_event.lat
+        td = admin_event.lang
+        td = admin_event.price
+        td = link_to 'Edit', edit_admin_event_path(admin_event)
+        td = link_to 'Destroy', admin_event_path(admin_event), data: { confirm: 'Are you sure?' }, method: :delete
+
+br
+
+= link_to 'New Event', new_admin_event_path

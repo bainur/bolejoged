@@ -1,0 +1,33 @@
+= form_for [:admin, @event] do |f|
+  - if @event.errors.any?
+    #error_explanation
+      h2 = "#{pluralize(@admin_event.errors.count, "error")} prohibited this admin_event from being saved:"
+      ul
+        - @admin_event.errors.full_messages.each do |message|
+          li = message
+
+  .field
+    = f.label :sport_category_id
+    = f.select :sport_category_id, options_for_select(SportCategory.all.collect {|p| [ p.name, p.id ] }, { include_blank: true })
+  .field
+    = f.label :name
+    = f.text_field :name
+  .field
+    = f.label :start_date
+    = f.datetime_select :start_date
+  .field
+    = f.label :end_date
+    = f.datetime_select :end_date
+  .field
+    = f.label :status
+    = f.check_box :status
+  .field
+    = f.label :lat
+    = f.text_field :lat
+  .field
+    = f.label :lang
+    = f.text_field :lang
+  .field
+    = f.label :price
+    = f.text_field :price
+  .actions = f.submit

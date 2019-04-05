@@ -1,0 +1,19 @@
+h1 Listing Sport Category
+
+table
+  thead
+    tr
+      th Name
+      th
+      th
+      th
+
+  tbody
+    - @sport_categories.each do |admin_sport_category|
+      tr
+        td = admin_sport_category.name
+        td = link_to 'Edit', edit_admin_sport_category_path(admin_sport_category)
+
+br
+
+= link_to 'New Sport category', new_admin_sport_category_path
