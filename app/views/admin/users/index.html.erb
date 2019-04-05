@@ -1,0 +1,47 @@
+<div class="ks-page-header">
+  <section class="ks-title-and-subtitle">
+    <div class="ks-title-block">
+      <h3 class="ks-main-title">List User</h3>
+    </div>
+  </section>
+</div>
+
+<div class="ks-page-content">
+  <div class="ks-page-content-body ks-content-nav">
+    <div class="ks-nav-body">
+      <div class="ks-nav-body-wrapper">
+        <div class="container-fluid">
+          <div class="bootstrap-table">
+            <div class="ks-controls">
+              <br/><br/><br/>
+            </div>
+            <table class="table table-striped table-bordered table-hover">
+              <thead>
+              <tr>
+                <th>Name</th>
+                <th>Address</th>
+                <th>Phone number</th>
+                <th>Email</th>
+                <th colspan="3"></th>
+              </tr>
+              </thead>
+
+              <tbody>
+              <% @users.each do |user| %>
+                  <tr>
+                    <td><%= user.full_name %></td>
+                    <td><%= user.user_information.address %></td>
+                    <td><%= user.user_information.phone_number %></td>
+                    <td><%= user.email %></td>
+                    <td>
+                    </td>
+                  </tr>
+              <% end %>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
